@@ -1,14 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Consulta CNAE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <title>Pesquisa de Empresas</title>
 </head>
 <body>
-    <h1>Consulta CNAE</h1>
-    <form action="consulta.html" method="POST">
-        <label for="valor">Código CNAE:</label>
-        <input type="text" id="valor" name="valor" required>
-        <button type="submit">Consultar</button>
-    </form>
+    <h1>Pesquisa de Empresas</h1>
+    <div class="container">
+        <input type="text" id="searchInput" placeholder="Pesquisar por nome...">
+        <button onclick="search()">Pesquisar</button>
+    
+        <div id="results">
+            <!-- Os resultados serão exibidos aqui -->
+        </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
 </body>
 </html>
+
+
+
