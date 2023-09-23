@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado da Consulta</title>
+    <style>
+        /* Estilo para a tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Estilo para as células de cabeçalho */
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Estilo para as células de dados */
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Estilo para linhas ímpares */
+        tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        /* Estilo para o nome da empresa */
+        .nome-empresa {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Estilo para o contato */
+        .contato {
+            font-weight: bold;
+        }
+
+        /* Espaço entre empresas */
+        .espaco-empresa {
+            height: 20px;
+        }
+
+        /* Espaço para a foto da empresa */
+        .espaco-foto {
+            width: 100px; /* Largura da área da foto */
+            /* Adicione mais estilos conforme necessário para a imagem */
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultado da Consulta</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Listagem de Empresas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for linha in linhas_com_expressao %}
+                <tr>
+                    <td class="nome-empresa">
+                        {% if linha['nome_fantasia'] %}
+                            {{ linha['nome_fantasia'] }}
+                        {% else %}
+                            {{ linha['razao_social'] }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="contato">Contato: {{ linha['telefone1'] }}</td>
+                </tr>
+                <tr>
+                    <td class="endereco">Endereço: {{ linha['tipo_logradouro'] }} {{ linha['logradouro'] }}, {{ linha['numero'] }} - {{ linha['bairro'] }}</td>
+                </tr>
+                <tr class="espaco-empresa">
+                    <!-- Linha de espaço entre empresas -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
