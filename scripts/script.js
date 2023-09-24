@@ -31,7 +31,7 @@ function search() {
             const resultList = document.createElement("ul");
             filteredData.forEach(item => {
                 const listItem = document.createElement("li");
-                listItem.textContent = `Nome Fantasia: ${item.nome_fantasia}, CNPJ: ${item.cnpj}`;
+                listItem.textContent = `Nome Fantasia: ${item.nome_fantasia}, Contato: ${item.telefone1}`;
                 resultList.appendChild(listItem);
             });
             resultsContainer.appendChild(resultList);
