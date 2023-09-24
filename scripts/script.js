@@ -2,7 +2,7 @@
 function loadData(callback) {
     const xhr = new XMLHttpRequest();
     xhr.overrideMimeType("application/json");
-    xhr.open('GET', '../dados/pacoti.json', true);
+    xhr.open('GET', '../dados/baturite.json', true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             callback(JSON.parse(xhr.responseText));
@@ -31,7 +31,7 @@ function search() {
             const resultList = document.createElement("ul");
             filteredData.forEach(item => {
                 const listItem = document.createElement("li");
-                listItem.textContent = `Nome Fantasia: ${item.nome_fantasia}, Contato: ${item.telefone1}`;
+                listItem.textContent = `${item.nome_fantasia}, Contato: ${item.telefone1}`;
                 resultList.appendChild(listItem);
             });
             resultsContainer.appendChild(resultList);
